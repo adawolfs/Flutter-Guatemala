@@ -2,12 +2,13 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_flare/smart_flare.dart';
 
+//ANCHOR GENERIC ASSETS
 class GenericAssets extends StatelessWidget {
   const GenericAssets({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final double defaultWH = 200.0;
+    final double defaultWH = 220.0;
 
     return Row(
       children: <Widget>[
@@ -77,14 +78,14 @@ class GenericAssetState extends State<GenericAsset> {
     ActiveArea activeArea = ActiveArea(
       area: Rect.fromLTWH(0, 0, widget.width, widget.height),
       animationName: widget.animation,
-      debugArea: true,
+      // debugArea: true,
     );
 
     if (widget.animationsToCycle != null) {
       activeArea = ActiveArea(
         area: Rect.fromLTWH(0, 0, widget.width, widget.height),
         animationsToCycle: widget.animationsToCycle,
-        debugArea: true,
+        // debugArea: true,
       );
     }
     return SmartFlareActor(

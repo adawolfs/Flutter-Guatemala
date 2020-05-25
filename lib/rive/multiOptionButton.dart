@@ -11,8 +11,8 @@ class MultiOptionButton extends StatefulWidget {
 class _MultiOptionButtonState extends State<MultiOptionButton> {
   @override
   Widget build(BuildContext context) {
-    var widgetHeight = 300.0;
-    var widgetWidth = 200.0;
+    var widgetHeight = 500.0;
+    var widgetWidth = 800.0;
     return Container(
       child: SmartFlareActor(
         height: widgetHeight,
@@ -28,7 +28,7 @@ class _MultiOptionButtonState extends State<MultiOptionButton> {
               widgetHeight / 2,
             ),
             animationsToCycle: ['activate', 'deactivate'],
-            // debugArea: true,
+            debugArea: false,
           ),
           RelativeActiveArea(
             area: Rect.fromLTWH(
@@ -38,7 +38,7 @@ class _MultiOptionButtonState extends State<MultiOptionButton> {
               0.2,
             ),
             animationName: 'camera_tapped',
-            // debugArea: true,
+            debugArea: false,
           ),
           RelativeActiveArea(
             area: Rect.fromLTWH(
@@ -48,7 +48,7 @@ class _MultiOptionButtonState extends State<MultiOptionButton> {
               0.2,
             ),
             animationName: 'pulse_tapped',
-            // debugArea: true,
+            debugArea: false,
           ),
           RelativeActiveArea(
             area: Rect.fromLTWH(
@@ -58,7 +58,7 @@ class _MultiOptionButtonState extends State<MultiOptionButton> {
               0.2,
             ),
             animationName: 'image_tapped',
-            // debugArea: true,
+            debugArea: false,
           ),
         ],
       ),

@@ -34,25 +34,27 @@ class DayNightToggleState extends State<DayNightToggle> {
 
   @override
   Widget build(BuildContext context) {
-    var widgetHeight = 200.0;
-    var widgetWidth = 200.0;
+    var widgetHeight = 300.0;
+    var widgetWidth = 500.0;
     return ConstrainedBox(
-        constraints: BoxConstraints(
-          maxWidth: widgetWidth,
-          maxHeight: widgetHeight,
-        ),
-        child: SmartFlareActor(
-          height: widgetHeight,
-          width: widgetWidth,
-          filename: "assets/toggle.flr",
-          startingAnimation: widget.getAnimation(),
-          activeAreas: [
-            ActiveArea(
-                area: Rect.fromLTWH(0, 0, widgetWidth, widgetHeight),
-                animationsToCycle: ["switch_day", "switch_night"],
-                onAreaTapped: () => {toggleAnimation()},
-                debugArea: true)
-          ],
-        ));
+      constraints: BoxConstraints(
+        maxWidth: widgetWidth,
+        maxHeight: widgetHeight,
+      ),
+      child: SmartFlareActor(
+        height: widgetHeight,
+        width: widgetWidth,
+        filename: "assets/toggle.flr",
+        startingAnimation: widget.getAnimation(),
+        activeAreas: [
+          ActiveArea(
+            area: Rect.fromLTWH(0, 0, widgetWidth, widgetHeight),
+            animationsToCycle: ["switch_day", "switch_night"],
+            onAreaTapped: () => {toggleAnimation()},
+            // debugArea: true,
+          )
+        ],
+      ),
+    );
   }
 }

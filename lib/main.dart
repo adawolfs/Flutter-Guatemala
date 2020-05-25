@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
 class FlutterDexSlides extends StatefulWidget {
   FlutterDexSlides({Key key}) : super(key: key);
 
+  Widget manSlide = Slides.mainSlide();
+
   @override
   _FlutterDexSlidesState createState() => _FlutterDexSlidesState();
 }
@@ -38,10 +40,46 @@ class _FlutterDexSlidesState extends State<FlutterDexSlides> {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('FlutterDex'),
+          // appBar: AppBar(
+          //   // title: Text('FlutterDex'),
+          // ),
+          body: widget.manSlide,
+          bottomNavigationBar: SlideBottomNavigator((Widget slide) {
+            setState(() {
+              widget.manSlide = slide;
+            });
+          })),
+    );
+  }
+}
+
+typedef SetStatusCallback = void Function(Widget);
+
+class SlideBottomNavigator extends StatelessWidget {
+  final SetStatusCallback setStatus;
+  SlideBottomNavigator(this.setStatus);
+
+  List<Widget> _generateNavigatorIcons(List<Widget> slides) {
+    List<Widget> icons = <Widget>[];
+    slides.forEach((slide) {
+      icons.add(IconButton(
+          icon: Icon(Icons.play_circle_outline),
+          onPressed: () {
+            setStatus(slide);
+          }));
+    });
+
+    return icons;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Container(
+        color: Colors.transparent,
+        child: Row(
+          children: _generateNavigatorIcons(Slides.SLIDE_LIST),
         ),
-        body: Slides.mainSlide(),
       ),
     );
   }
